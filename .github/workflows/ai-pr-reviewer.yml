@@ -22,8 +22,8 @@ jobs:
     steps:
       - uses: coderabbitai/ai-pr-reviewer@latest
         env:
-          GITHUB_TOKEN: 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
-          OPENAI_API_KEY: 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
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         with:
           debug: false
           review_simple_changes: false
