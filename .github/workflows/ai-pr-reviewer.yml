@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: coderabbitai/ai-pr-reviewer@latest
         env:
-          GITHUB_TOKEN: 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
+          GITHUB_TOKEN: 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
           OPENAI_API_KEY: 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
         with:
           debug: false
