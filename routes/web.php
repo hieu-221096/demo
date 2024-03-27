@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('hone/', function () {
         $start_date = "2022-10-19";
-        return view ('welcome', ['start_date' => $start_date]);
+        if ($start_date > "abc") {
+            return view ('welcome', ['start_date' => $start_date]);
+        }
     });
 });
