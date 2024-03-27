@@ -59,6 +59,7 @@ jobs:
               - Security
               - Performance
               - Spelling and typos
+              - Logic code
             Keep in mind that the person being reviewed is a beginner, so focus on fundamental aspects.
             Do not comment on minor code style issues or the absence of comments/documentation.
             Avoid commenting on sections where no issues are present.
