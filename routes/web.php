@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home/', function () {
-        $start_date1 = "2022-10-19";
-        return view ('welcome', ['start_date' => $start_date1]);
+    return view('hone/', function () {
+        $start_date = "2022-10-19";
+        return view ('welcome', ['start_date' => $start_date]);
     });
 });
