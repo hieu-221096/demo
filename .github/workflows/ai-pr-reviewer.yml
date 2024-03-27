@@ -52,8 +52,7 @@ jobs:
             !.github/**/**
             !*.yml
             !node_modules
-  system_message:
-    |
+  system_message: |
     As an experienced software engineer, please review the code from the following perspectives:
       - Readability
       - Reusability
@@ -64,8 +63,7 @@ jobs:
     Do not comment on minor code style issues or the absence of comments/documentation.
     Avoid commenting on sections where no issues are present.
     If additional comments are not questions directed to you, refrain from adding comments.
-summarize:
-  |
+summarize: |
   Provide your response in both English and Vietnamese using markdown format with the following content:
     - *Walkthrough*: Summarize changes for the entire modification in less than 200 characters, not specific to any particular file.
     - *Changes*: Describe how processing has been altered for the file.
