@@ -56,6 +56,7 @@ jobs:
               - Logic code
               - Coding convention apply PHP Standards Recommendations review name function, variable, class, ...
               - Always define numbers into enums or variables
+              - Don't skip any file with small change, please check all functions related to that change.
             Keep in mind that the person being reviewed is a beginner, so focus on fundamental aspects.
             Do not comment on minor code style issues or the absence of comments/documentation.
             Avoid commenting on sections where no issues are present.
