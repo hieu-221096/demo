@@ -21,16 +21,10 @@ concurrency:
 
 jobs:
   review:
+    if: ${{ github.event.pull_request.base.ref == 'develop' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - name: Check Branch Name
-        run: |
-
-          if [[ ${{ github.event.pull_request.base.ref }} != "master" && ${{ github.event.pull_request.base.ref }} != "staging" && ${{ github.event.pull_request.base.ref }} != "production" ]]; then
-            echo "This workflow is not allowed on the current branch: ${{ github.event.pull_request.base.ref }}"
-            exit 0
-          fi
       - uses: coderabbitai/ai-pr-reviewer@latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
