@@ -1,23 +1,27 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\PromotionController;
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Admin Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
 |
 */
 
-Route::get('/', function () {
-    return view('hone/', function () {
-        $start_date2 = "2022-10-19";
-        if ($start_date1 > "abc" || $start_date2 > 1) {
-            return view ('welcome', ['start_date' => $start_date]);
-        }
-    });
+Route::get('login', [AuthController::class, 'formLogin'])->name('admin.login.form');
+Route::post('login', [AuthController::class, 'login'])->name('admin.login.action');
+Route::get('logout', [AuthController::class, 'logout'])->name('admin.logout.action');
+
+Route::group(['middleware' => ['auth:admin']], function () {
+    Route::get('/promotion', [PromotionController::class, 'index'])->name('admin.promotion.index');
+    Route::get('/promotion/create', [PromotionController::class, 'create'])->name('admin.promotion.create');
+    Route::post('/promotion/save', [PromotionController::class, 'save'])->name('admin.promotion.insert');
+    Route::post('/promotion/delete', [PromotionController::class, 'delete'])->name('admin.promotion.delete');
 });
+
