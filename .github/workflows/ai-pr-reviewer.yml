@@ -16,11 +16,11 @@ concurrency:
   group:
     ${{ github.repository }}-${{ github.event.number || github.head_ref ||
     github.sha }}-${{ github.workflow }}-${{ github.event_name == 'pr' }}
-  cancel-in-progress: ${{ github.event_name != 'pr' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request_review_comment' }}
 
 jobs:
   review:
-    if: ${{ github.event.pull_request.base.ref == 'develop'}}-${{ github.event_name != 'pr' }}
+    if: ${{ github.event.pull_request.base.ref == 'develop' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
