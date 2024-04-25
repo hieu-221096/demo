@@ -21,7 +21,7 @@ concurrency:
 
 jobs:
   review:
-    if: ${{ github.event.pull_request.base.ref == 'develop' }}
+    if: ${{ github.event.pull_request.base.ref == 'develop' &&  github.event_name == 'pr' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
